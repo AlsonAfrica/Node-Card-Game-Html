@@ -1,21 +1,15 @@
 const colors = [
     'red', 'blue', 'green', 'yellow', 'purple', 'orange', 
     'pink', 'brown', 'gray', 'cyan', 'lime', 'magenta', 
-    'pink', 'brown', 'gray', 'cyan', 'lime', 'magenta', 
-    'red', 'blue', 'green', 'yellow', 'purple', 'orange',
-    
-];
+    'teal', 'indigo', 'violet', 'turquoise', 'gold', 'silver'
+]; // 18 unique colors
 
-// Duplicate colors array to make pairs
-let colorPairs = colors.flatMap(color => Array(4).fill(color));
+// Duplicate colors array to make pairs (36 cards)
+let colorPairs = [...colors, ...colors];
 
 // Shuffle the colors
 function shuffleColors() {
-    // colorPairs = colorPairs.sort(() => 0.5 - Math.random());
-    for (let i = colorPairs.length - 1; i > 0; i--){
-        const j = Math.floor(Math.random() * (i + 1));
-        [colorPairs[i], colorPairs[j]]=[colorPairs[j], colorPairs[i]];
-    }
+    colorPairs = colorPairs.sort(() => 0.5 - Math.random());
 }
 
 // Shuffle the colors initially
@@ -38,10 +32,9 @@ let score = 0;
 let timerInterval;
 let time = 0;
 
-window.onload = function (){
+window.onload = function () {
     showinstructionsModal();
-    closeModalButton();
-}
+};
 
 // Start the game timer
 function startTimer() {
@@ -61,11 +54,12 @@ function resetTimer() {
 }
 
 // Delay timer
-function delayedStartTimer(){
-    setTimeout(()=>{
+function delayedStartTimer() {
+    setTimeout(() => {
         startTimer();
-    }, 2000)
+    }, 2000);
 }
+
 // Function to create a card element
 function createCard(color, index) {
     const card = document.createElement('div');
@@ -115,7 +109,6 @@ function checkMatch() {
         if (matchedCards === colorPairs.length) {
             setTimeout(() => {
                 showWinModal();  // Show win modal
-                resetButton();
             }, 500);
         }
     } else {
@@ -123,8 +116,8 @@ function checkMatch() {
         setTimeout(() => {
             firstCard.classList.remove('flipped');
             secondCard.classList.remove('flipped');
-            firstCard.style.backgroundColor = '#333';
-            secondCard.style.backgroundColor = '#333';
+            firstCard.style.backgroundColor = '#FFF';  // Reset to default background
+            secondCard.style.backgroundColor = '#FFF'; // Reset to default background
         }, 1000);
     }
 
@@ -136,12 +129,12 @@ function showWinModal() {
     winModal.style.display = 'flex';
 }
 
-function showinstructionsModal(){
+function showinstructionsModal() {
     instructionsModal.style.display = 'flex';
 }
 
-function hideinstructionsModal(){
-    instructionsModal.style.display = 'none'
+function hideinstructionsModal() {
+    instructionsModal.style.display = 'none';
 }
 
 // Hide the win modal
@@ -184,8 +177,5 @@ closeModalButton.addEventListener('click', () => {
 });
 
 // Initialize the game
-startTimer();
+delayedStartTimer();
 renderBoard();
-
-
-
