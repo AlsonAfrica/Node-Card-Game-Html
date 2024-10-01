@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Node Card Flip Game</title>
+    <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+    <div id="instructions-modal" class="modal">
+        <div class="modal-content">
+             <h1>Game Instructions</h1>
+             <p><ul>
+                <li>
+                    The game consists of a 6 by 6 grid layout
+                </li>
+                <li>
+                    Color match a card with another card by clicking 2 cards at a time 
+                </li>
+                <li>
+                    Selected cards will turn black indicating card has been selected before
+                </li>
+                <li>
+                    Correctly selected cards earn you 10 points
+                </li>
+                <li>
+                    Moves! Every click is tracked.
+                </li>
+                <li>
+                    Pro Tip: less clicks the better
+                </li>
+                <li>
+                    Timer tracks how long you take to complete the game
+                </li>
+                <li>
+                    Reset button resets and reshuffles the cards
+                </li>
+             </ul></p>
+            <button id="close-modal">Close</button>
+        </div>
+    </div>
+
+    <div class="user-panel">
+        <div class="score">Score: <span id="score">0</span></div>
+        <div class="moves">Moves: <span id="moves">0</span></div>
+        <div class="time">Time: <span id="time">00:00</span></div>
+        <button id="reset-button" class="reset-button">Reset Game</button>
+    </div>
+
+    <div id="game-board" class="board"></div>
+    
+    <div id="win-modal" class="modal">
+        <div class="modal-content">
+            <p>You Have Won!</p>
+            <button id="close-modal">Close</button>
+        </div>
+    </div>
+
+    <script src="./script.js"></script>
+</body>
+</html>
