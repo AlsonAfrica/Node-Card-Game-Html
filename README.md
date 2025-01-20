@@ -49,6 +49,11 @@ npm (Node Package Manager)
     bash: 
     Server running on http://localhost:3000
 
+# Running the User Side
+ 
+    bash: 
+    cd public and run the public file on any live server extension on visual studio code
+
 
 # File Structure
 
